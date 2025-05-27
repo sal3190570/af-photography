@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import styles from "./navbar.module.css";
+import styles from "./Navbar.module.css";
 import Link from "next/link";
 function Item({ label, number }: { label: string; number: number }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -39,7 +39,14 @@ function Item({ label, number }: { label: string; number: number }) {
 
 function TextReveal() {
   return (
-    <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        width: "100%",
+        margin: "40px",
+      }}
+    >
       <ul className={styles.list}>
         <Item label="Home" number={1} />
         <Item label="Bookings" number={2} />
