@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
+import Image from "next/image";
+
 function Item({ label, number }: { label: string; number: number }) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -61,7 +63,15 @@ function TextReveal() {
 export default function Navbar() {
   return (
     <nav style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+      <Image
+        src="/images/Logo.jpeg"
+        width={200}
+        height={100}
+        priority
+        alt="Your Company Logo"
+      />
       <TextReveal />
+      <li className={styles.text}>Instagram</li>
     </nav>
   );
 }
