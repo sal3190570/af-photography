@@ -1,0 +1,38 @@
+.list {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-direction: row;
+}
+
+.item {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  height: 32px;
+}
+
+.text {
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 32px;
+}
+
+.numberLabel {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  opacity: 0.5;
+  font-variant-numeric: tabular-nums;
+}
