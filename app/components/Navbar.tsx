@@ -51,7 +51,7 @@ function TextReveal() {
     >
       <ul className={styles.list}>
         <Item label="Home" number={1} />
-        <Item label="Bookings" number={2} />
+        <Item label="Info" number={2} />
         <Item label="Gallery" number={3} />
         <Item label="Contact" number={4} />
         <Item label="About Us" number={5} />
