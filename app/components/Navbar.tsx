@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import InfoDropDown from "../UI/InfoDropDown";
 
 export default function Navbar() {
   return (
@@ -14,9 +15,9 @@ export default function Navbar() {
             <Link href={"/"}>
               <li>Home</li>
             </Link>
-            <Link href={"/info"}>
-              <li>Info</li>
-            </Link>
+
+            <InfoDropDown />
+
             <Link href={"/portlio"}>
               <li>Portfolio</li>
             </Link>
