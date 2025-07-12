@@ -17,9 +17,16 @@ export default function InfoDropDown() {
   };
 
   return (
-    <div>
+    <li className="flex items-center">
       <Button
         id="basic-button"
+        sx={{
+          fontSize: "1.125rem",
+          fontWeight: 500,
+          color: "white",
+          textTransform: "none",
+          background: "transparent",
+        }}
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
@@ -48,6 +55,6 @@ export default function InfoDropDown() {
           <Link href={"/about"}>Meet the Photographer</Link>
         </MenuItem>
       </Menu>
-    </div>
+    </li>
   );
 }

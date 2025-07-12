@@ -6,18 +6,16 @@ import InfoDropDown from "../UI/InfoDropDown";
 export default function Navbar() {
   return (
     <>
-      <nav className="flex justify-evenly w-full h-[100px] bg-gray-400 gap-20 relative">
-        <div className="flex items-center justify-center">
-          <Image src="/Logo.jpeg" width={100} height={100} alt="AF Logo" />
+      <nav className="flex flex-wrap justify-evenly w-full h-[100px] bg-gray-400 gap-4 sm:gap-10 p-2 sm:p-4 relative">
+        <div className="flex items-center justify-center flex-shrink-0">
+          <Image src="/Logo.jpeg" width={80} height={80} alt="AF Logo" />
         </div>
-        <div className="flex items-center">
-          <ul className="flex gap-10 cursor-pointer">
+        <div className="flex items-center flex-grow justify-center">
+          <ul className="flex flex-wrap gap-4 sm:gap-10 cursor-pointer justify-center items-center text-lg text-white">
             <Link href={"/"}>
               <li>Home</li>
             </Link>
-
             <InfoDropDown />
-
             <Link href={"/portlio"}>
               <li>Portfolio</li>
             </Link>
@@ -29,8 +27,7 @@ export default function Navbar() {
             </Link>
           </ul>
         </div>
-
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-2 sm:gap-5 flex-shrink-0 text-lg text-white">
           <span>Instagram</span>
           <button>Book Now</button>
         </div>
