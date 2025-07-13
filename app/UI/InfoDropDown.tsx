@@ -9,11 +9,21 @@ import Link from "next/link";
 export default function InfoDropDown() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  // Only apply font and color, let MUI handle background/hover/ripple
+  const menuItemSx = {
+    fontSize: "1.125rem",
+    fontWeight: 500,
+    color: "#615252",
+    textTransform: "none",
+    // No background or &:hover overrides!
   };
 
   return (
@@ -23,7 +33,7 @@ export default function InfoDropDown() {
         sx={{
           fontSize: "1.125rem",
           fontWeight: 500,
-          color: "white",
+          color: "#615252",
           textTransform: "none",
           background: "transparent",
         }}
@@ -45,14 +55,24 @@ export default function InfoDropDown() {
           },
         }}
       >
-        <MenuItem onClick={handleClose}>
-          <Link href={"/the-experience"}>The Experience</Link>
+        <MenuItem sx={menuItemSx} onClick={handleClose}>
+          <Link href="/the-experience" legacyBehavior>
+            <a style={{ color: "#615252", textDecoration: "none" }}>
+              The Experience
+            </a>
+          </Link>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link href={"/faqs"}>FAQs</Link>
+        <MenuItem sx={menuItemSx} onClick={handleClose}>
+          <Link href="/faqs" legacyBehavior>
+            <a style={{ color: "#615252", textDecoration: "none" }}>FAQs</a>
+          </Link>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link href={"/about"}>Meet the Photographer</Link>
+        <MenuItem sx={menuItemSx} onClick={handleClose}>
+          <Link href="/about" legacyBehavior>
+            <a style={{ color: "#615252", textDecoration: "none" }}>
+              Meet the Photographer
+            </a>
+          </Link>
         </MenuItem>
       </Menu>
     </li>
