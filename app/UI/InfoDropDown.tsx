@@ -17,24 +17,23 @@ export default function InfoDropDown() {
     setAnchorEl(null);
   };
 
-  // Only apply font and color, let MUI handle background/hover/ripple
   const menuItemSx = {
-    fontSize: "1.125rem",
+    fontFamily: "inherit",
+    fontSize: "14px",
     fontWeight: 500,
     color: "#615252",
     textTransform: "none",
-    // No background or &:hover overrides!
   };
 
   return (
     <li className="flex items-center">
       <Button
-        id="basic-button"
         sx={{
-          fontSize: "1.125rem",
+          fontFamily: "inherit",
+          fontSize: "14px",
           fontWeight: 500,
           color: "#615252",
-          textTransform: "none",
+          textTransform: "inherit",
           background: "transparent",
         }}
         aria-controls={open ? "basic-menu" : undefined}
