@@ -2,79 +2,123 @@
 
 import React from "react";
 import {
-  Drawer,
+  Modal,
+  Fade,
   List,
   ListItemText,
   Collapse,
   Box,
   ListItemButton,
+  Link,
 } from "@mui/material";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
-
-// ✅ Import Hamburger from hamburger-react
 import { Sling as Hamburger } from "hamburger-react";
 
 const NavbarMenu: React.FC = () => {
-  const [openDrawer, setOpenDrawer] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
   const [openInfo, setOpenInfo] = React.useState(false);
+
+  const linkStyle = {
+    textDecoration: "none",
+    textTransform: "none",
+    color: "#615252",
+  };
 
   return (
     <Box>
-      {/* Animated Hamburger icon */}
+      {/* Hamburger Icon */}
       <Box sx={{ position: "fixed", top: 16, left: 16, zIndex: 1301 }}>
         <Hamburger
-          toggled={openDrawer}
-          toggle={setOpenDrawer}
-          direction="left"
+          toggled={open}
+          toggle={setOpen}
+          direction="right"
           color="black"
         />
       </Box>
 
-      {/* Full-width Drawer */}
-      <Drawer
-        anchor="left"
-        open={openDrawer}
-        onClose={() => setOpenDrawer(false)}
+      {/* Navigation Modal */}
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        closeAfterTransition
         slotProps={{
-          paper: {
-            sx: {
-              width: "100vw",
-              maxWidth: "100vw",
-              backgroundColor: "white", // optional
-              pt: 4, // padding top so it doesn’t clash with hamburger
-            },
-          },
+          backdrop: { timeout: 300 },
         }}
       >
-        <Box sx={{ width: "100%" }} role="presentation">
-          <List>
-            <ListItemButton onClick={() => setOpenInfo((prev) => !prev)}>
-              <ListItemText primary="Info" />
-              {openInfo ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
+        <Fade in={open} timeout={400}>
+          <Box
+            sx={{
+              width: "100vw",
+              height: "100vh",
+              bgcolor: "white",
+              p: 5,
+              pt: 10, // padding top to avoid overlapping hamburger
+              outline: 0,
+              position: "relative",
+              overflowY: "auto",
+              color: "#615252",
+            }}
+          >
+            <List sx={{ ml: "50px" }}>
+              <ListItemButton
+                component={Link}
+                href="/portfolio"
+                sx={{ ...linkStyle }}
+              >
+                <ListItemText primary="Portfolio" />
+              </ListItemButton>
 
-            <Collapse in={openInfo} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItemButton sx={{ pl: 4 }}>
-                  <ListItemText primary="About" />
-                </ListItemButton>
-                <ListItemButton sx={{ pl: 4 }}>
-                  <ListItemText primary="FAQ" />
-                </ListItemButton>
-              </List>
-            </Collapse>
+              <ListItemButton onClick={() => setOpenInfo((prev) => !prev)}>
+                <ListItemText primary="Info" />
+                {openInfo ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
 
-            <ListItemButton>
-              <ListItemText primary="Pricing" />
-            </ListItemButton>
+              <Collapse in={openInfo} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  <ListItemButton
+                    component={Link}
+                    href="/the-experience"
+                    sx={{ ...linkStyle, pl: 4 }}
+                  >
+                    <ListItemText primary="The Experience" />
+                  </ListItemButton>
+                  <ListItemButton
+                    component={Link}
+                    href="/faqs"
+                    sx={{ ...linkStyle, pl: 4 }}
+                  >
+                    <ListItemText primary="FAQs" />
+                  </ListItemButton>
+                  <ListItemButton
+                    component={Link}
+                    href="/about"
+                    sx={{ ...linkStyle, pl: 4 }}
+                  >
+                    <ListItemText primary="Meet the Photographer" />
+                  </ListItemButton>
+                </List>
+              </Collapse>
 
-            <ListItemButton>
-              <ListItemText primary="Contact" />
-            </ListItemButton>
-          </List>
-        </Box>
-      </Drawer>
+              <ListItemButton
+                component={Link}
+                href="/pricing"
+                sx={{ ...linkStyle }}
+              >
+                <ListItemText primary="Pricing" />
+              </ListItemButton>
+
+              <ListItemButton
+                component={Link}
+                href="/contact"
+                sx={{ ...linkStyle }}
+              >
+                <ListItemText primary="Contact" />
+              </ListItemButton>
+            </List>
+          </Box>
+        </Fade>
+      </Modal>
     </Box>
   );
 };
