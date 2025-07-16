@@ -41,7 +41,7 @@ const NavbarMenu: React.FC<Props> = ({ open, setOpen }) => {
       <div
         style={{
           position: "fixed",
-          top: 16,
+          top: 40,
           left: 16,
           zIndex: 1500,
         }}

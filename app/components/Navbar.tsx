@@ -41,11 +41,20 @@ export default function Navbar() {
 
         {/* Center – Logo */}
         <div
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[1600] cursor-pointer"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[1600] cursor-pointer w-[150px] h-[100px]"
           onClick={closeMenu}
         >
           <Link href="/" passHref>
-            <Image src="/Logo.png" width={150} height={100} alt="AF Logo" />
+            <div className="relative w-full h-full">
+              <Image
+                src="/Logo.png"
+                alt="AF Logo"
+                fill
+                priority
+                style={{ objectFit: "contain" }}
+                sizes="150px"
+              />
+            </div>
           </Link>
         </div>
 
