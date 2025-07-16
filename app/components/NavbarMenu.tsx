@@ -4,19 +4,24 @@ import React from "react";
 import {
   Modal,
   Fade,
+  Box,
   List,
+  ListItemButton,
   ListItemText,
   Collapse,
-  Box,
-  ListItemButton,
   Link as MuiLink,
 } from "@mui/material";
+import { Sling as Hamburger } from "hamburger-react";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
-import { Sling as Hamburger } from "hamburger-react";
+import SocialsAndContacts from "./UI/SocialsAndContacts";
 
-const NavbarMenu: React.FC = () => {
-  const [open, setOpen] = React.useState(false);
+type Props = {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const NavbarMenu: React.FC<Props> = ({ open, setOpen }) => {
   const [openInfo, setOpenInfo] = React.useState(false);
 
   const closeMenu = () => {
@@ -32,7 +37,7 @@ const NavbarMenu: React.FC = () => {
 
   return (
     <>
-      {/* Always render single hamburger (animated) */}
+      {/* Hamburger Button */}
       <div
         style={{
           position: "fixed",
@@ -50,16 +55,14 @@ const NavbarMenu: React.FC = () => {
         />
       </div>
 
-      {/* Modal */}
+      {/* Modal Menu */}
       <Modal
         open={open}
         onClose={closeMenu}
-        disablePortal // ✅ keeps it inside current DOM hierarchy
+        disablePortal
         closeAfterTransition
-        slotProps={{
-          backdrop: { timeout: 300 },
-        }}
         disableAutoFocus
+        slotProps={{ backdrop: { timeout: 300 } }}
       >
         <Fade in={open} timeout={400}>
           <Box
@@ -72,10 +75,10 @@ const NavbarMenu: React.FC = () => {
               position: "relative",
               overflowY: "auto",
               color: "#615252",
-              zIndex: 1400, // Lower than hamburger
+              zIndex: 1400,
             }}
           >
-            <List sx={{ ml: "50px" }}>
+            <List sx={{ ml: "50px", mt: "40px" }}>
               <ListItemButton
                 component={MuiLink}
                 href="/portfolio"
@@ -136,6 +139,9 @@ const NavbarMenu: React.FC = () => {
               >
                 <ListItemText primary="Contact" />
               </ListItemButton>
+              <div className="ml-4 mt-10">
+                <SocialsAndContacts />
+              </div>
             </List>
           </Box>
         </Fade>
