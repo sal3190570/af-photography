@@ -15,7 +15,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="w-full h-[120px] bg-transparent z-50 relative">
+    <nav className="w-full h-[120px] bg-transparent z-50 fixed">
       <div className="max-w-7xl mx-auto flex justify-between items-center h-full px-4 mt-2">
         {/* Left side */}
         <div className="flex items-center space-x-6">
