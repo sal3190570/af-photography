@@ -9,7 +9,7 @@ export default function Home() {
           alt="Couple holding hands together in front of a big tree"
           width={2160}
           height={1350}
-          className="w-full max-h-[95vh] object-cover filter grayscale"
+          className="w-full max-h-[95vh] object-cover"
           style={{ objectPosition: "50% 60%" }}
           priority
         />
