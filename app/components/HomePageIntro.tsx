@@ -37,8 +37,8 @@ export default function HomePageIntro() {
 
         {/* Description */}
         <p
-          className="text-[#615252] font-medium text-lg sm:text-xl md:text-2xl lg:text-3xl
-  ml-[6vw] sm:ml-[12vw] md:ml-[16vw] lg:ml-[20vw] xl:ml-[24vw] max-w-[450px] mt-10"
+          className="text-[#615252] font-medium text-lg w-[350px] lg:w-[450px] sm:text-xl md:text-2xl lg:text-3xl
+  ml-[12vw] sm:ml-[14vw] md:ml-[16vw] lg:ml-[20vw] xl:ml-[24vw] max-w-[500px] mt-15"
         >
           "My goal is to capture the fleeting, beautiful moments that tell your
           unique family story—whether it's the glow of pregnancy, the tiny
@@ -47,7 +47,10 @@ export default function HomePageIntro() {
           can be cherished forever."
         </p>
 
-        <button className="text-[#615252] mt-10 cursor-pointer">
+        <button
+          className="text-[#615252] mt-15 font-medium text-base sm:text-lg md:text-xl lg:text-2xl border border-[#615252] px-6 py-2 rounded transition hover:bg-[#615252] hover:text-white cursor-pointer
+  ml-[4vw] sm:ml-[6vw] md:ml-[9vw] lg:ml-[11vw] xl:ml-[12vw] w-fit"
+        >
           Contact Me
         </button>
       </div>
