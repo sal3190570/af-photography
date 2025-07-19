@@ -34,6 +34,22 @@ export default function HomePageIntro() {
         >
           <span className="italic">Melbourne</span> Family Photographer
         </h1>
+
+        {/* Description */}
+        <p
+          className="text-[#615252] font-medium text-lg sm:text-xl md:text-2xl lg:text-3xl
+  ml-[6vw] sm:ml-[12vw] md:ml-[16vw] lg:ml-[20vw] xl:ml-[24vw] max-w-[450px] mt-10"
+        >
+          "My goal is to capture the fleeting, beautiful moments that tell your
+          unique family story—whether it's the glow of pregnancy, the tiny
+          fingers of a newborn, or the spontaneous laughter between siblings.
+          These are the moments that pass quickly, but through photography, they
+          can be cherished forever."
+        </p>
+
+        <button className="text-[#615252] mt-10 cursor-pointer">
+          Contact Me
+        </button>
       </div>
     </section>
   );
