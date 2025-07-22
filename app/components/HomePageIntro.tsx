@@ -40,18 +40,18 @@ export default function HomePageIntro() {
           className="text-[#615252] font-medium text-lg w-[350px] lg:w-[450px] sm:text-xl md:text-2xl lg:text-3xl
   ml-[12vw] sm:ml-[14vw] md:ml-[16vw] lg:ml-[20vw] xl:ml-[24vw] max-w-[500px] mt-15"
         >
-          "My goal is to capture the fleeting, beautiful moments that tell your
+          My goal is to capture the fleeting, beautiful moments that tell your
           unique family story—whether it's the glow of pregnancy, the tiny
           fingers of a newborn, or the spontaneous laughter between siblings.
           These are the moments that pass quickly, but through photography, they
-          can be cherished forever."
+          can be cherished forever.
         </p>
 
         <button
           className="text-[#615252] mt-15 font-medium text-base sm:text-lg md:text-xl lg:text-2xl border border-[#615252] px-6 py-2 rounded transition hover:bg-[#615252] hover:text-white cursor-pointer
   ml-[4vw] sm:ml-[6vw] md:ml-[9vw] lg:ml-[11vw] xl:ml-[12vw] w-fit"
         >
-          Contact Me
+          Book Now
         </button>
       </div>
     </section>
