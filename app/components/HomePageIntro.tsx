@@ -41,7 +41,7 @@ export default function HomePageIntro() {
   ml-[12vw] sm:ml-[14vw] md:ml-[16vw] lg:ml-[20vw] xl:ml-[24vw] max-w-[500px] mt-15"
         >
           My goal is to capture the fleeting, beautiful moments that tell your
-          unique family story—whether it's the glow of pregnancy, the tiny
+          unique family story—whether It&apos;s the glow of pregnancy, the tiny
           fingers of a newborn, or the spontaneous laughter between siblings.
           These are the moments that pass quickly, but through photography, they
           can be cherished forever.
