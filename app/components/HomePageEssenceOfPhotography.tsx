@@ -1,4 +1,5 @@
 import React from "react";
+import ImageRevealSlider from "./UI/ImageRevealSlider";
 
 export default function HomePageEssenceOfPhotography() {
   return (
@@ -13,11 +14,15 @@ export default function HomePageEssenceOfPhotography() {
             Andy Warhol
           </span>
         </div>
-        <div className="flex flex-col items-center justify-center relative max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[#615252] text-xl md:text-2xl lg:text-3xl mt-20 max-w-[600px] w-[75%] text-center">
+        <div
+          className="flex items-center justify-center relative max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8
+        mt-20 gap-10"
+        >
+          <p className="text-[#615252] text-md sm:text-lg md:text-2xl lg:text-2xl max-w-[600px] w-[75%] text-center">
             Capturing those moments of joy and connection—freezing them in time
             to spark memories and nostalgia—is what truly drives me.
           </p>
+          <ImageRevealSlider />
         </div>
       </section>
     </>
