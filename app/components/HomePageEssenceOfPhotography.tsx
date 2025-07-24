@@ -24,6 +24,8 @@ export default function HomePageEssenceOfPhotography() {
           </p>
           <ImageRevealSlider />
         </div>
+
+        <div></div>
       </section>
     </>
   );
