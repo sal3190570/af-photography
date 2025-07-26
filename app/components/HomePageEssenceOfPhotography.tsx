@@ -1,5 +1,6 @@
 import React from "react";
 import ImageRevealSlider from "./UI/ImageRevealSlider";
+import Link from "next/link";
 
 export default function HomePageEssenceOfPhotography() {
   return (
@@ -24,8 +25,16 @@ export default function HomePageEssenceOfPhotography() {
           </p>
           <ImageRevealSlider />
         </div>
-
-        <div></div>
+        <div className="flex justify-center mt-8 sm:mt-12">
+          <Link href={"/portfolio"}>
+            <button
+              className="text-[#615252] font-medium text-base sm:text-lg md:text-xl lg:text-2xl border border-[#615252] px-6 py-2 rounded transition
+             hover:bg-[#615252] hover:text-white cursor-pointer w-fit"
+            >
+              View My Work
+            </button>
+          </Link>
+        </div>
       </section>
     </>
   );

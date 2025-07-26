@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function HomePageIntro() {
@@ -46,13 +47,14 @@ export default function HomePageIntro() {
           These are the moments that pass quickly, but through photography, they
           can be cherished forever.
         </p>
-
-        <button
-          className="text-[#615252] mt-15 font-medium text-base sm:text-lg md:text-xl lg:text-2xl border border-[#615252] px-6 py-2 rounded transition hover:bg-[#615252] hover:text-white cursor-pointer
+        <Link href={"/contact"}>
+          <button
+            className="text-[#615252] mt-15 font-medium text-base sm:text-lg md:text-xl lg:text-2xl border border-[#615252] px-6 py-2 rounded transition hover:bg-[#615252] hover:text-white cursor-pointer
   ml-[4vw] sm:ml-[6vw] md:ml-[9vw] lg:ml-[11vw] xl:ml-[12vw] w-fit"
-        >
-          Book Now
-        </button>
+          >
+            Book Now
+          </button>
+        </Link>
       </div>
     </section>
   );
