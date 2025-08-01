@@ -5,32 +5,30 @@ import React from "react";
 export default function Footer() {
   return (
     <>
-      <section className="w-full flex justify-between relative h-[600px] bg-red-200">
-        <div className="ml-10 py-10">
-          <ul
-            className="flex flex-col underline gap-0.5 text-[#615252]
+      <section className="w-full flex flex-col items-center justify-center relative h-[600px] bg-red-200">
+        <ul
+          className="flex flex-col underline gap-0.5 text-[#615252]
           cursor-pointer"
+        >
+          <Link href={"/contact"}>
+            <li>Contact Form</li>
+          </Link>
+
+          <a href="mailto:me@salmanawal.com">
+            <li>Email</li>
+          </a>
+
+          <a
+            href="https://www.instagram.com/af_photo.graphy_/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className=""
           >
-            <Link href={"/contact"}>
-              <li>Contact Form</li>
-            </Link>
+            Instagram
+          </a>
+        </ul>
 
-            <a href="mailto:me@salmanawal.com">
-              <li>Email</li>
-            </a>
-
-            <a
-              href="https://www.instagram.com/af_photo.graphy_/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className=""
-            >
-              Instagram
-            </a>
-          </ul>
-        </div>
-
-        <div className="">
+        <div className="flex flex-col items-center justify-center">
           <Link href="/" passHref>
             <div className="relative w-[150px] h-[150px]">
               <Image
@@ -43,7 +41,7 @@ export default function Footer() {
               />
             </div>
           </Link>
-          <div className="flex flex-col w-[400px]">
+          <div className="flex flex-col justify-center items-center w-[400px]">
             <span>Melbourne and Surrounds, VIC, Australia</span>
             <span>© AF Photography. All rights reserved.</span>
           </div>
