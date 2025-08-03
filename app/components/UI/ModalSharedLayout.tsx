@@ -38,11 +38,11 @@ const baseZIndex = 2000;
 const zStack = ["overlay", "thumbnail", "image"];
 
 const images: ImageItem[] = [
-  { url: "/SharedModalPhotos/1.jpg", aspectRatio: "4 / 3" },
+  { url: "/SharedModalPhotos/1.jpg", aspectRatio: "3 / 4" },
   { url: "/SharedModalPhotos/2.jpg", aspectRatio: "3 / 4" },
   { url: "/SharedModalPhotos/3.jpg", aspectRatio: "3 / 4" },
   { url: "/SharedModalPhotos/4.jpg", aspectRatio: "3 / 4" },
-  { url: "/SharedModalPhotos/5.jpg", aspectRatio: "4 / 3" },
+  { url: "/SharedModalPhotos/5.jpg", aspectRatio: "3 / 4" },
   { url: "/SharedModalPhotos/6.jpg", aspectRatio: "3 / 4" },
 ];
 
@@ -99,8 +99,8 @@ function Gallery({ items, setIndex }: GalleryProps) {
         list-none
         box-border
         max-sm:w-[calc(100%-40px)]
-        max-sm:h-[300px]
-        max-sm:grid-cols-2
+        max-sm:h-[350px]
+        max-sm:grid-cols-3
         max-sm:grid-rows-2
       "
     >
@@ -110,7 +110,7 @@ function Gallery({ items, setIndex }: GalleryProps) {
           image={image}
           i={i}
           open={() => setIndex(i)}
-          hiddenOnMobile={i > 3}
+          hiddenOnMobile={i > 6}
         />
       ))}
     </ul>
