@@ -84,8 +84,8 @@ function Gallery({ items, setIndex }: GalleryProps) {
   return (
     <ul
       className="
-        bg-[#f7f1e1]
-        border border-[#1d2628]
+        bg-[#f5dec0]
+        border border-[#f5dec0]
         rounded-[25px]
         w-[500px]
         h-[400px]
@@ -137,7 +137,7 @@ function GalleryItem({ image, open, i, hiddenOnMobile }: GalleryItemProps) {
         w-full h-full
         overflow-hidden
         relative
-        bg-[#f7f1e1]
+        bg-[#f5dec0]
         flex items-center justify-center
         transition-shadow
         focus-visible:outline-2 focus-visible:outline-pink-500 focus-visible:outline-offset-2

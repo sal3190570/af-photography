@@ -4,7 +4,7 @@ import React from "react";
 
 export default function HomePageIntro() {
   return (
-    <section className="relative w-full py-24 overflow-hidden">
+    <section className="relative w-full py-24 overflow-hidden ">
       <div className="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <h2
