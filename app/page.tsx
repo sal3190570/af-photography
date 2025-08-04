@@ -11,7 +11,7 @@ export default function Home() {
       <HomePageIntro />
       <HomePageEssenceOfPhotography />
       <HomePageFollow />
-      <Footer />
+      <Footer bg="bg-red-50" />
     </>
   );
 }
