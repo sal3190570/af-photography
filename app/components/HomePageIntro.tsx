@@ -8,7 +8,7 @@ export default function HomePageIntro() {
       <div className="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <h2
-          className=" text-[#615252] font-medium text-xl sm:text-2xl lg:text-4xl mb-16
+          className="  font-medium text-xl sm:text-2xl lg:text-4xl mb-16
           ml-[4vw] sm:ml-[6vw] md:ml-[9vw] lg:ml-[11vw] xl:ml-[12vw] w-fit"
         >
           Memories in Every Frame
@@ -30,7 +30,7 @@ export default function HomePageIntro() {
 
         {/* Subheading */}
         <h1
-          className="text-[#615252] font-medium text-xl sm:text-2xl lg:text-4xl whitespace-nowrap
+          className=" font-medium text-xl sm:text-2xl lg:text-4xl whitespace-nowrap
   ml-[33vw] sm:ml-[35vw] md:ml-[40vw] lg:ml-[42vw] xl:ml-[44vw] w-fit"
         >
           <span className="italic">Melbourne</span> Family Photographer
@@ -38,7 +38,7 @@ export default function HomePageIntro() {
 
         {/* Description */}
         <p
-          className="text-[#615252] font-medium text-lg w-[350px] lg:w-[450px] sm:text-xl md:text-2xl lg:text-3xl
+          className=" font-medium text-lg w-[350px] lg:w-[450px] sm:text-xl md:text-2xl lg:text-3xl
   ml-[12vw] sm:ml-[14vw] md:ml-[16vw] lg:ml-[20vw] xl:ml-[24vw] max-w-[500px] mt-15"
         >
           My goal is to capture the fleeting, beautiful moments that tell your
@@ -49,7 +49,7 @@ export default function HomePageIntro() {
         </p>
         <Link href={"/contact"}>
           <button
-            className="text-[#615252] mt-15 font-medium text-base sm:text-lg md:text-xl lg:text-2xl border border-[#615252] px-6 py-2 rounded transition hover:bg-[#615252] hover:text-white cursor-pointer
+            className=" mt-15 font-medium text-base sm:text-lg md:text-xl lg:text-2xl border border-[#f5dec0]  px-6 py-2 rounded transition hover:bg-[#f5dec0]  cursor-pointer
   ml-[4vw] sm:ml-[6vw] md:ml-[9vw] lg:ml-[11vw] xl:ml-[12vw] w-fit"
           >
             Book Now
