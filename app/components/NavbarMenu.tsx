@@ -43,7 +43,7 @@ const NavbarMenu: React.FC<Props> = ({ open, setOpen }) => {
           position: "fixed",
           top: 40,
           left: 16,
-          zIndex: 1500,
+          zIndex: 2100, // Must be above all other UIs (including image modal overlays)
         }}
       >
         <Hamburger
@@ -59,7 +59,7 @@ const NavbarMenu: React.FC<Props> = ({ open, setOpen }) => {
       <Modal
         open={open}
         onClose={closeMenu}
-        disablePortal
+        disablePortal={false} // The default is false, but ensure it ports to document.body
         closeAfterTransition
         disableAutoFocus
         slotProps={{ backdrop: { timeout: 300 } }}
@@ -72,10 +72,12 @@ const NavbarMenu: React.FC<Props> = ({ open, setOpen }) => {
               bgcolor: "white",
               p: 5,
               pt: 10,
-              position: "relative",
+              position: "fixed",
+              top: 0,
+              left: 0,
               overflowY: "auto",
               color: "#615252",
-              zIndex: 1400,
+              zIndex: 2100, // **Must be above image modals**
             }}
           >
             <List sx={{ ml: "50px", mt: "40px" }}>

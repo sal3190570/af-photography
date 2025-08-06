@@ -7,6 +7,7 @@ import {
   useMotionValue,
 } from "framer-motion";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 // ===== Types =====
 
@@ -50,30 +51,45 @@ const images: ImageItem[] = [
 
 export default function ModalSharedLayout() {
   const [index, setIndex] = useState<number | false>(false);
+
   useEscToClose(index !== false, () => setIndex(false));
+
+  // Prevent scrolling when modal is open
+  useEffect(() => {
+    if (index !== false) {
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }
+  }, [index]);
 
   return (
     <MotionConfig transition={{ type: "spring", bounce: 0.1, duration: 0.3 }}>
       <Gallery items={images} setIndex={setIndex} />
-      <AnimatePresence>
-        {index !== false && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            key="overlay"
-            className="fixed inset-0 z-[2000] bg-black/60"
-            onClick={() => setIndex(false)}
-          />
+      {typeof window !== "undefined" &&
+        createPortal(
+          <AnimatePresence>
+            {index !== false && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                key="overlay"
+                className="fixed inset-0 z-[2000] bg-black/60"
+                onClick={() => setIndex(false)}
+              />
+            )}
+            {index !== false && (
+              <SingleImage
+                key="image"
+                image={images[index]}
+                onClick={() => setIndex(false)}
+              />
+            )}
+          </AnimatePresence>,
+          document.body
         )}
-        {index !== false && (
-          <SingleImage
-            key="image"
-            image={images[index]}
-            onClick={() => setIndex(false)}
-          />
-        )}
-      </AnimatePresence>
     </MotionConfig>
   );
 }
