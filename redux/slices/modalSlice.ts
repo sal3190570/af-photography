@@ -1,35 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  signUpModalOpen: false,
-  logInModalOpen: false,
+export enum ModalType {
+  Navbar = "navbar",
+  ModalSharedLayout = "modalsharedlayout",
+  SignUp = "signUp",
+  LogIn = "logIn",
+}
+
+const initialState: { openModal: ModalType | null } = {
+  openModal: null,
 };
 
 const modalSlice = createSlice({
   name: "modals",
   initialState,
   reducers: {
-    openSignUpModal: (state) => {
-      state.signUpModalOpen = true;
+    openModal: (state, action) => {
+      state.openModal = action.payload;
     },
-    closeSignUpModal: (state) => {
-      state.signUpModalOpen = false;
-    },
-
-    openLogInModal: (state) => {
-      state.logInModalOpen = true;
-    },
-    closeLogInModal: (state) => {
-      state.logInModalOpen = false;
+    closeModal: (state) => {
+      state.openModal = null;
     },
   },
 });
 
-export const {
-  openSignUpModal,
-  closeSignUpModal,
-  openLogInModal,
-  closeLogInModal,
-} = modalSlice.actions;
+export const { openModal, closeModal } = modalSlice.actions;
 
 export default modalSlice.reducer;
