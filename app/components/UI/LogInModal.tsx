@@ -5,29 +5,28 @@ import { Modal } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function SignUpModal() {
+export default function LogInModal() {
   const isOpen = useSelector(
-    (state: RootState) => state.modals.openModal === "signUp"
+    (state: RootState) => state.modals.openModal === "logIn"
   );
   const dispatch: AppDispatch = useDispatch();
-  console.log(isOpen);
+
   return (
     <>
       <button
         className="text-sm lg:text-lg xl:text-2xl font-medium cursor-pointer hover:underline"
-        onClick={() => dispatch(openModal("signUp"))}
+        onClick={() => dispatch(openModal("logIn"))}
       >
-        Sign Up
+        Log In
       </button>
-
       <Modal
         open={isOpen}
         onClose={() => dispatch(closeModal())}
-        className="flex justify-center items-center
-    "
+        className="flex justify-center items-center"
       >
         <div className="bg-white h-[400px] w-[200px]">
-          This is the signUp Modal
+          {" "}
+          This is the logIn modal
         </div>
       </Modal>
     </>

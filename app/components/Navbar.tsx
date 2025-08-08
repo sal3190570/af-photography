@@ -6,6 +6,8 @@ import Image from "next/image";
 import InfoDropDown from "../UI/InfoDropDown";
 import NavbarMenu from "./NavbarMenu";
 import SocialsAndContacts from "./UI/SocialsAndContacts";
+import LogInModal from "./UI/LogInModal";
+import SignUpModal from "./UI/SignUpModal";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,7 +27,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop links */}
-          <ul className="hidden md:flex flex-wrap gap-6 text-sm font-medium text-[#615252] items-center">
+          <ul className="hidden md:flex flex-wrap gap-6 text-sm lg:text-lg xl:text-2xl font-medium text-[#615252] items-center">
             <Link href="/portfolio" passHref>
               <li className="hover:underline cursor-pointer">Portfolio</li>
             </Link>
@@ -58,7 +60,10 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Right side – Desktop socials */}
+        <div className="hidden md:flex ml-auto mr-8 lg:gap-10 xl:gap-20 gap-4">
+          <SignUpModal />
+          <LogInModal />
+        </div>
         <div className="hidden md:flex">
           <SocialsAndContacts />
         </div>

@@ -25,11 +25,17 @@ export default function InfoDropDown() {
   };
 
   return (
-    <li className="flex items-center">
+    <li className="flex items-center  ">
       <Button
         sx={{
           fontFamily: "inherit",
-          fontSize: "14px",
+          fontSize: {
+            xs: "14px",
+            sm: "14px",
+            md: "14px",
+            lg: "18px",
+            xl: "24px",
+          },
           fontWeight: 500,
           color: "#615252",
           textTransform: "inherit",
