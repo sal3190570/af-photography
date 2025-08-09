@@ -1,5 +1,5 @@
 "use client";
-import { closeModal, ModalType, openModal } from "@/redux/slices/modalSlice";
+import { closeModal, ModalType } from "@/redux/slices/modalSlice";
 import { AppDispatch, RootState } from "@/redux/Store";
 import { Modal } from "@mui/material";
 import React from "react";

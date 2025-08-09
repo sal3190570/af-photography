@@ -4,7 +4,6 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Link from "next/link";
 import { AppDispatch } from "@/redux/Store";
 import { useDispatch } from "react-redux";
 import { ModalType, openModal } from "@/redux/slices/modalSlice";
