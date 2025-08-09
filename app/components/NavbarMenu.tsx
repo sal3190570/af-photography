@@ -67,7 +67,7 @@ const NavbarMenu: React.FC = () => {
             toggled={isOpen}
             toggle={(t) => {
               if (t) {
-                dispatch(openModal(ModalType.NavbarMenu));
+                dispatch(openModal({ type: ModalType.NavbarMenu }));
               } else {
                 dispatch(closeModal());
               }
@@ -118,7 +118,7 @@ const NavbarMenu: React.FC = () => {
                     sx={{ ...linkStyle, pl: 4 }}
                     onClick={() => {
                       handleCloseMenu();
-                      dispatch(openModal(ModalType.LogIn));
+                      dispatch(openModal({ type: ModalType.LogIn }));
                     }}
                   >
                     <ListItemText primary="Client Login" />
@@ -128,7 +128,7 @@ const NavbarMenu: React.FC = () => {
                     sx={{ ...linkStyle, pl: 4 }}
                     onClick={() => {
                       handleCloseMenu();
-                      dispatch(openModal(ModalType.SignUp));
+                      dispatch(openModal({ type: ModalType.SignUp }));
                     }}
                   >
                     <ListItemText primary="Sign Up" />

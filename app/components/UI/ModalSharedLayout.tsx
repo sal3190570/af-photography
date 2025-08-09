@@ -6,11 +6,13 @@ import {
   MotionConfig,
   useMotionValue,
 } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { createPortal } from "react-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { openModal, closeModal, ModalType } from "@/redux/slices/modalSlice";
+import type { RootState } from "@/redux/Store"; // adjust import if needed
 
 // ===== Types =====
-
 type ImageItem = {
   url: string;
   aspectRatio: "4 / 3" | "3 / 4";
@@ -18,7 +20,7 @@ type ImageItem = {
 
 interface GalleryProps {
   items: ImageItem[];
-  setIndex: (idx: number) => void;
+  openAtIndex: (idx: number) => void;
 }
 
 interface GalleryItemProps {
@@ -34,7 +36,6 @@ interface SingleImageProps {
 }
 
 // ===== Data =====
-
 const baseZIndex = 2000;
 const zStack = ["overlay", "thumbnail", "image"];
 
@@ -47,45 +48,56 @@ const images: ImageItem[] = [
   { url: "/SharedModalPhotos/6.jpg", aspectRatio: "3 / 4" },
 ];
 
-// ===== Main Component =====
-
 export default function ModalSharedLayout() {
-  const [index, setIndex] = useState<number | false>(false);
+  const dispatch = useDispatch();
+  const { openModal: modalType, sharedModalIndex } = useSelector(
+    (state: RootState) => state.modals
+  );
 
-  useEscToClose(index !== false, () => setIndex(false));
+  const isOpen =
+    modalType === ModalType.ModalSharedLayout &&
+    sharedModalIndex !== null &&
+    sharedModalIndex >= 0;
+
+  useEscToClose(isOpen, () => dispatch(closeModal()));
 
   // Prevent scrolling when modal is open
   useEffect(() => {
-    if (index !== false) {
+    if (isOpen) {
       document.body.style.overflow = "hidden";
       return () => {
         document.body.style.overflow = "";
       };
     }
-  }, [index]);
+  }, [isOpen]);
 
   return (
     <MotionConfig transition={{ type: "spring", bounce: 0.1, duration: 0.3 }}>
-      <Gallery items={images} setIndex={setIndex} />
+      <Gallery
+        items={images}
+        openAtIndex={(idx) =>
+          dispatch(openModal({ type: ModalType.ModalSharedLayout, index: idx }))
+        }
+      />
       {typeof window !== "undefined" &&
         createPortal(
           <AnimatePresence>
-            {index !== false && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                key="overlay"
-                className="fixed inset-0 z-[2000] bg-black/60"
-                onClick={() => setIndex(false)}
-              />
-            )}
-            {index !== false && (
-              <SingleImage
-                key="image"
-                image={images[index]}
-                onClick={() => setIndex(false)}
-              />
+            {isOpen && sharedModalIndex !== null && (
+              <>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  key="overlay"
+                  className="fixed inset-0 z-[2000] bg-black/60"
+                  onClick={() => dispatch(closeModal())}
+                />
+                <SingleImage
+                  key="image"
+                  image={images[sharedModalIndex]}
+                  onClick={() => dispatch(closeModal())}
+                />
+              </>
             )}
           </AnimatePresence>,
           document.body
@@ -95,37 +107,15 @@ export default function ModalSharedLayout() {
 }
 
 // ===== Gallery =====
-
-function Gallery({ items, setIndex }: GalleryProps) {
+function Gallery({ items, openAtIndex }: GalleryProps) {
   return (
-    <ul
-      className="
-        bg-[#f5dec0]
-        border border-[#f5dec0]
-        rounded-[25px]
-        w-[500px]
-        h-[400px]
-        mx-auto
-        mt-10
-        p-5
-        grid
-        grid-cols-3
-        grid-rows-2
-        gap-5
-        list-none
-        box-border
-        max-sm:w-[calc(100%-40px)]
-        max-sm:h-[350px]
-        max-sm:grid-cols-3
-        max-sm:grid-rows-2
-      "
-    >
+    <ul className="bg-[#f5dec0] border border-[#f5dec0] rounded-[25px] w-[500px] h-[400px] mx-auto mt-10 p-5 grid grid-cols-3 grid-rows-2 gap-5 list-none box-border max-sm:w-[calc(100%-40px)] max-sm:h-[350px] max-sm:grid-cols-3 max-sm:grid-rows-2">
       {items.map((image, i) => (
         <GalleryItem
           key={image.url}
           image={image}
           i={i}
-          open={() => setIndex(i)}
+          open={() => openAtIndex(i)}
           hiddenOnMobile={i > 6}
         />
       ))}
@@ -134,7 +124,6 @@ function Gallery({ items, setIndex }: GalleryProps) {
 }
 
 // ===== GalleryItem =====
-
 function GalleryItem({ image, open, i, hiddenOnMobile }: GalleryItemProps) {
   const zIndex = useMotionValue(0);
   const activeZIndex = baseZIndex + zStack.indexOf("thumbnail");
@@ -148,18 +137,9 @@ function GalleryItem({ image, open, i, hiddenOnMobile }: GalleryItemProps) {
 
   return (
     <motion.li
-      className={`
-        cursor-pointer
-        w-full h-full
-        overflow-hidden
-        relative
-        bg-[#f5dec0]
-        flex items-center justify-center
-        transition-shadow
-        focus-visible:outline-2 focus-visible:outline-pink-500 focus-visible:outline-offset-2
-        ${aspectClass}
-        ${hiddenOnMobile ? "max-sm:hidden" : ""}
-      `}
+      className={`cursor-pointer w-full h-full overflow-hidden relative bg-[#f5dec0] flex items-center justify-center transition-shadow focus-visible:outline-2 focus-visible:outline-pink-500 focus-visible:outline-offset-2 ${aspectClass} ${
+        hiddenOnMobile ? "max-sm:hidden" : ""
+      }`}
       key={image.url}
       onClick={() => {
         open();
@@ -188,7 +168,6 @@ function GalleryItem({ image, open, i, hiddenOnMobile }: GalleryItemProps) {
 }
 
 // ===== SingleImage =====
-
 function SingleImage({ image, onClick }: SingleImageProps) {
   const aspectClass =
     image.aspectRatio === "4 / 3"
@@ -199,24 +178,12 @@ function SingleImage({ image, onClick }: SingleImageProps) {
 
   return (
     <div
-      className={`
-        fixed inset-0 flex justify-center items-center
-        z-[2002]
-      `}
+      className="fixed inset-0 flex justify-center items-center z-[2002]"
       onClick={onClick}
     >
       <motion.div
         layoutId={image.url}
-        className={`
-          overflow-hidden
-          max-w-[90vw]
-          max-h-[90vh]
-          bg-transparent
-          rounded-2xl
-          shadow-xl
-          p-0
-          ${aspectClass}
-        `}
+        className={`overflow-hidden max-w-[90vw] max-h-[90vh] bg-transparent rounded-2xl shadow-xl p-0 ${aspectClass}`}
         style={{ borderRadius: 20 }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -233,7 +200,6 @@ function SingleImage({ image, onClick }: SingleImageProps) {
 }
 
 // ===== Escape Hook =====
-
 function useEscToClose(isOpen: boolean, close: () => void) {
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {

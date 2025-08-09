@@ -7,7 +7,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 import { AppDispatch } from "@/redux/Store";
 import { useDispatch } from "react-redux";
-import { openModal } from "@/redux/slices/modalSlice";
+import { ModalType, openModal } from "@/redux/slices/modalSlice";
 
 export default function LoginDropDown() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -64,7 +64,7 @@ export default function LoginDropDown() {
           sx={menuItemSx}
           onClick={() => {
             handleClose();
-            dispatch(openModal("logIn"));
+            dispatch(openModal({ type: ModalType.LogIn }));
           }}
         >
           Client Login
@@ -75,7 +75,7 @@ export default function LoginDropDown() {
           sx={menuItemSx}
           onClick={() => {
             handleClose();
-            dispatch(openModal("signUp"));
+            dispatch(openModal({ type: ModalType.SignUp }));
           }}
         >
           Sign Up
