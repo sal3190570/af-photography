@@ -1,5 +1,5 @@
 "use client";
-import { closeModal, openModal } from "@/redux/slices/modalSlice";
+import { closeModal, ModalType, openModal } from "@/redux/slices/modalSlice";
 import { AppDispatch, RootState } from "@/redux/Store";
 import { Modal } from "@mui/material";
 import React from "react";
@@ -7,19 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function SignUpModal() {
   const isOpen = useSelector(
-    (state: RootState) => state.modals.openModal === "signUp"
+    (state: RootState) => state.modals.openModal === ModalType.SignUp
   );
   const dispatch: AppDispatch = useDispatch();
-  console.log(isOpen);
+
   return (
     <>
-      <button
-        className="text-sm lg:text-lg xl:text-2xl font-medium cursor-pointer hover:underline"
-        onClick={() => dispatch(openModal("signUp"))}
-      >
-        Sign Up
-      </button>
-
       <Modal
         open={isOpen}
         onClose={() => dispatch(closeModal())}

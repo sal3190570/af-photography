@@ -10,61 +10,84 @@ import {
   ListItemText,
   Collapse,
   Link as MuiLink,
+  Portal,
 } from "@mui/material";
 import { Sling as Hamburger } from "hamburger-react";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import SocialsAndContacts from "./UI/SocialsAndContacts";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/redux/Store";
+import { closeModal, ModalType, openModal } from "@/redux/slices/modalSlice";
 
-type Props = {
-  open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-};
+const NavbarMenu: React.FC = () => {
+  const dispatch: AppDispatch = useDispatch();
 
-const NavbarMenu: React.FC<Props> = ({ open, setOpen }) => {
+  // Single source of truth from Redux
+  const isOpen = useSelector(
+    (state: RootState) => state.modals.openModal === ModalType.NavbarMenu
+  );
+
   const [openInfo, setOpenInfo] = React.useState(false);
-
-  const closeMenu = () => {
-    setOpen(false);
-    setOpenInfo(false);
-  };
+  const [openLogin, setOpenLogin] = React.useState(false);
 
   const linkStyle = {
     textDecoration: "none",
     textTransform: "none",
     color: "#615252",
+    fontSize: {
+      xs: "14px",
+      sm: "16px",
+      lg: "20px",
+      xl: "24px",
+    },
+    fontWeight: 500,
+  };
+
+  const handleCloseMenu = () => {
+    setOpenInfo(false);
+    setOpenLogin(false);
+    dispatch(closeModal());
   };
 
   return (
     <>
-      {/* Hamburger Button */}
-      <div
-        style={{
-          position: "fixed",
-          top: 40,
-          left: 16,
-          zIndex: 2100, // Must be above all other UIs (including image modal overlays)
-        }}
-      >
-        <Hamburger
-          toggled={open}
-          toggle={setOpen}
-          direction="right"
-          color="#615252"
-          size={24}
-        />
-      </div>
+      {/* Mobile hamburger button, only below md */}
+      <Portal>
+        <div
+          className="block md:hidden"
+          style={{
+            position: "fixed",
+            top: 40,
+            left: 16,
+            zIndex: 99999,
+          }}
+        >
+          <Hamburger
+            toggled={isOpen}
+            toggle={(t) => {
+              if (t) {
+                dispatch(openModal(ModalType.NavbarMenu));
+              } else {
+                dispatch(closeModal());
+              }
+            }}
+            direction="right"
+            color="#615252"
+            size={32}
+          />
+        </div>
+      </Portal>
 
-      {/* Modal Menu */}
+      {/* Mobile menu modal */}
       <Modal
-        open={open}
-        onClose={closeMenu}
-        disablePortal={false} // The default is false, but ensure it ports to document.body
+        open={isOpen}
+        onClose={handleCloseMenu}
         closeAfterTransition
         disableAutoFocus
         slotProps={{ backdrop: { timeout: 300 } }}
       >
-        <Fade in={open} timeout={400}>
+        <Fade in={isOpen} timeout={400}>
           <Box
             sx={{
               width: "100vw",
@@ -77,31 +100,73 @@ const NavbarMenu: React.FC<Props> = ({ open, setOpen }) => {
               left: 0,
               overflowY: "auto",
               color: "#615252",
-              zIndex: 2100, // **Must be above image modals**
+              zIndex: 2100,
             }}
           >
             <List sx={{ ml: "50px", mt: "40px" }}>
+              {/* Login collapsible */}
+              <ListItemButton onClick={() => setOpenLogin((prev) => !prev)}>
+                <ListItemText
+                  primary="Login"
+                  sx={{ fontSize: linkStyle.fontSize, fontWeight: 500 }}
+                />
+                {openLogin ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
+              <Collapse in={openLogin} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  <ListItemButton
+                    sx={{ ...linkStyle, pl: 4 }}
+                    onClick={() => {
+                      handleCloseMenu();
+                      dispatch(openModal(ModalType.LogIn));
+                    }}
+                  >
+                    <ListItemText primary="Client Login" />
+                  </ListItemButton>
+                  <ListItemButton
+                    divider
+                    sx={{ ...linkStyle, pl: 4 }}
+                    onClick={() => {
+                      handleCloseMenu();
+                      dispatch(openModal(ModalType.SignUp));
+                    }}
+                  >
+                    <ListItemText primary="Sign Up" />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{ ...linkStyle, pl: 4 }}
+                    onClick={handleCloseMenu}
+                  >
+                    <ListItemText primary="Staff Login" />
+                  </ListItemButton>
+                </List>
+              </Collapse>
+
+              {/* Portfolio link */}
               <ListItemButton
                 component={MuiLink}
                 href="/portfolio"
                 sx={linkStyle}
-                onClick={closeMenu}
+                onClick={handleCloseMenu}
               >
                 <ListItemText primary="Portfolio" />
               </ListItemButton>
 
+              {/* Info collapsible */}
               <ListItemButton onClick={() => setOpenInfo((prev) => !prev)}>
-                <ListItemText primary="Info" />
+                <ListItemText
+                  primary="Info"
+                  sx={{ fontSize: linkStyle.fontSize, fontWeight: 500 }}
+                />
                 {openInfo ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
-
               <Collapse in={openInfo} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                   <ListItemButton
                     component={MuiLink}
                     href="/the-experience"
                     sx={{ ...linkStyle, pl: 4 }}
-                    onClick={closeMenu}
+                    onClick={handleCloseMenu}
                   >
                     <ListItemText primary="The Experience" />
                   </ListItemButton>
@@ -109,7 +174,7 @@ const NavbarMenu: React.FC<Props> = ({ open, setOpen }) => {
                     component={MuiLink}
                     href="/faqs"
                     sx={{ ...linkStyle, pl: 4 }}
-                    onClick={closeMenu}
+                    onClick={handleCloseMenu}
                   >
                     <ListItemText primary="FAQs" />
                   </ListItemButton>
@@ -117,30 +182,33 @@ const NavbarMenu: React.FC<Props> = ({ open, setOpen }) => {
                     component={MuiLink}
                     href="/about"
                     sx={{ ...linkStyle, pl: 4 }}
-                    onClick={closeMenu}
+                    onClick={handleCloseMenu}
                   >
                     <ListItemText primary="Meet the Photographer" />
                   </ListItemButton>
                 </List>
               </Collapse>
 
+              {/* Pricing */}
               <ListItemButton
                 component={MuiLink}
                 href="/pricing"
                 sx={linkStyle}
-                onClick={closeMenu}
+                onClick={handleCloseMenu}
               >
                 <ListItemText primary="Pricing" />
               </ListItemButton>
 
+              {/* Contact */}
               <ListItemButton
                 component={MuiLink}
                 href="/contact"
                 sx={linkStyle}
-                onClick={closeMenu}
+                onClick={handleCloseMenu}
               >
                 <ListItemText primary="Contact" />
               </ListItemButton>
+
               <div className="ml-4 mt-10">
                 <SocialsAndContacts />
               </div>

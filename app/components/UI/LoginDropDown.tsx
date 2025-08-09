@@ -5,8 +5,11 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
+import { AppDispatch } from "@/redux/Store";
+import { useDispatch } from "react-redux";
+import { openModal } from "@/redux/slices/modalSlice";
 
-export default function InfoDropDown() {
+export default function LoginDropDown() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -19,72 +22,67 @@ export default function InfoDropDown() {
 
   const menuItemSx = {
     fontFamily: "inherit",
-    fontSize: "14px",
-    fontWeight: 500,
+    fontSize: "inherit", // inherit from parent li
+    fontWeight: "inherit",
     color: "#615252",
   };
 
+  const dispatch: AppDispatch = useDispatch();
   return (
-    <li className="flex items-center  ">
+    <li className="hover:underline cursor-pointer text-sm lg:text-lg xl:text-2xl font-medium text-[#615252] flex items-center">
       <Button
         sx={{
           fontFamily: "inherit",
-          fontSize: {
-            xs: "14px",
-            sm: "14px",
-            md: "14px",
-            lg: "18px",
-            xl: "24px",
-          },
-          fontWeight: 500,
-          color: "#615252",
+          fontSize: "inherit", // inherits parent's Tailwind text size
+          fontWeight: "inherit",
+          color: "inherit",
           textTransform: "inherit",
           background: "transparent",
+          padding: 0,
+          minWidth: "auto", // let it size like text, no extra spacing
         }}
-        aria-controls={open ? "info-menu" : undefined}
+        aria-controls={open ? "login-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        Info
+        Login
       </Button>
 
       <Menu
-        id="info-menu"
+        id="login-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
         slotProps={{
           list: {
-            "aria-labelledby": "info-button",
+            "aria-labelledby": "login-button",
           },
         }}
       >
         <MenuItem
-          component={Link}
-          href="/the-experience"
           sx={menuItemSx}
-          onClick={handleClose}
+          onClick={() => {
+            handleClose();
+            dispatch(openModal("logIn"));
+          }}
         >
-          The Experience
+          Client Login
         </MenuItem>
 
         <MenuItem
-          component={Link}
-          href="/faqs"
+          divider={true}
           sx={menuItemSx}
-          onClick={handleClose}
+          onClick={() => {
+            handleClose();
+            dispatch(openModal("signUp"));
+          }}
         >
-          FAQs
+          Sign Up
         </MenuItem>
 
-        <MenuItem
-          component={Link}
-          href="/about"
-          sx={menuItemSx}
-          onClick={handleClose}
-        >
-          Meet the Photographer
+        <MenuItem sx={menuItemSx} onClick={handleClose}>
+          Staff Login
         </MenuItem>
       </Menu>
     </li>

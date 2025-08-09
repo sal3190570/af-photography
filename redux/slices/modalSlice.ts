@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export enum ModalType {
-  Navbar = "navbar",
+  NavbarMenu = "navbarMenu",
   ModalSharedLayout = "modalsharedlayout",
   SignUp = "signUp",
   LogIn = "logIn",
