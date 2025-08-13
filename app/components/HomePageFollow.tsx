@@ -1,5 +1,5 @@
 import React from "react";
-import ModalSharedLayout from "./UI/ModalSharedLayout";
+import ModalSharedLayout from "./modals/ModalSharedLayout";
 import TickerTitle from "./UI/TickerTitle";
 
 export default function HomePageFollow() {

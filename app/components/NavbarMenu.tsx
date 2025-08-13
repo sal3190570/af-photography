@@ -135,7 +135,10 @@ const NavbarMenu: React.FC = () => {
                   </ListItemButton>
                   <ListItemButton
                     sx={{ ...linkStyle, pl: 4 }}
-                    onClick={handleCloseMenu}
+                    onClick={() => {
+                      handleCloseMenu();
+                      dispatch(openModal({ type: ModalType.StaffLogin }));
+                    }}
                   >
                     <ListItemText primary="Staff Login" />
                   </ListItemButton>

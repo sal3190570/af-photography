@@ -3,8 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/redux/StoreProvider";
 import Navbar from "./components/Navbar";
-import SignUpModal from "./components/UI/SignUpModal";
-import LogInModal from "./components/UI/LogInModal";
+import SignUpModal from "./components/modals/SignUpModal";
+import LogInModal from "./components/modals/LogInModal";
+import StaffLoginModal from "./components/modals/StaffLoginModal";
+import ForgotPasswordModal from "./components/modals/ForgotPasswordModal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +37,8 @@ export default function RootLayout({
           <Navbar />
           <SignUpModal />
           <LogInModal />
+          <StaffLoginModal />
+          <ForgotPasswordModal />
           {children}
         </body>
       </html>

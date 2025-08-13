@@ -99,6 +99,9 @@ export default function SignUpModal() {
             <label className="text-left">Email Address</label>
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="email"
               placeholder="your@email.com"
               className="mx-auto border border-gray-300 rounded-lg px-4 py-2 focus:outline-none w-[85%] sm:max-w-[250px]"
             />

@@ -5,6 +5,8 @@ export enum ModalType {
   ModalSharedLayout = "modalsharedlayout",
   SignUp = "signUp",
   LogIn = "logIn",
+  ForgotPassword = "forgotPassword",
+  StaffLogin = "staffLogin",
 }
 
 const initialState = {

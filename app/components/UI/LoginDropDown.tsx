@@ -80,7 +80,13 @@ export default function LoginDropDown() {
           Sign Up
         </MenuItem>
 
-        <MenuItem sx={menuItemSx} onClick={handleClose}>
+        <MenuItem
+          sx={menuItemSx}
+          onClick={() => {
+            handleClose();
+            dispatch(openModal({ type: ModalType.StaffLogin }));
+          }}
+        >
           Staff Login
         </MenuItem>
       </Menu>

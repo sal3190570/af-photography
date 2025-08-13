@@ -136,7 +136,9 @@ export default function LogInModal() {
             </div>
             <button
               className="text-right -mt-1 mb-1 text-[#ea992f] font-semibold cursor-pointer"
-              onClick={() => console.log("forgot password function ran")}
+              onClick={() =>
+                dispatch(openModal({ type: ModalType.ForgotPassword }))
+              }
             >
               Forgot your Password?
             </button>
