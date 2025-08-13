@@ -15,7 +15,7 @@ const SocialsAndContacts = () => (
       <FaInstagram size={20} color="#615252" />
     </a>
     <MuiLink href="/contact" underline="none">
-      <button className="bg-white text-[#615252] text-sm font-medium px-4 py-2 rounded cursor-pointer hover:bg-gray-200 transition w-fit">
+      <button className="bg-white text-[#615252] text-sm font-medium px-4 py-2 rounded cursor-pointer hover:outline-2 hover:outline-[#615252] transition w-fit">
         Book Now
       </button>
     </MuiLink>
