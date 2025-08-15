@@ -1,8 +1,8 @@
-import HomePageIntro from "./components/HomePageIntro";
-import HomePageHero from "./components/HomePageHero";
-import HomePageEssenceOfPhotography from "./components/HomePageEssenceOfPhotography";
 import Footer from "./components/Footer";
-import HomePageFollow from "./components/HomePageFollow";
+import HomePageEssenceOfPhotography from "./components/home/HomePageEssenceOfPhotography";
+import HomePageFollow from "./components/home/HomePageFollow";
+import HomePageHero from "./components/home/HomePageHero";
+import HomePageIntro from "./components/home/HomePageIntro";
 
 export default function Home() {
   return (

@@ -15,10 +15,11 @@ import {
 import { Sling as Hamburger } from "hamburger-react";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
-import SocialsAndContacts from "./UI/SocialsAndContacts";
+
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/redux/Store";
 import { closeModal, ModalType, openModal } from "@/redux/slices/modalSlice";
+import SocialsAndContacts from "../UI/SocialsAndContacts";
 
 const NavbarMenu: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();

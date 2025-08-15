@@ -4,9 +4,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import NavbarMenu from "./NavbarMenu";
-import SocialsAndContacts from "./UI/SocialsAndContacts";
-import LoginDropDown from "./UI/LoginDropDown";
-import InfoDropDown from "./UI/InfoDropDown";
+import InfoDropDown from "../UI/InfoDropDown";
+import LoginDropDown from "../UI/LoginDropDown";
+import SocialsAndContacts from "../UI/SocialsAndContacts";
 
 export default function Navbar() {
   return (

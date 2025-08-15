@@ -1,6 +1,7 @@
 import React from "react";
-import ImageRevealSlider from "./UI/ImageRevealSlider";
+
 import Link from "next/link";
+import ImageRevealSlider from "../UI/ImageRevealSlider";
 
 export default function HomePageEssenceOfPhotography() {
   return (
