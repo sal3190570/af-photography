@@ -151,7 +151,7 @@ export default function LogInModal() {
             Log In
           </button>
           <div className="text-sm mt-2 flex gap-2">
-            Don't have an account yet?
+            Don&apos;t have an account yet?
             <span
               className="text-[#ea992f] font-bold underline cursor-pointer"
               onClick={() => dispatch(openModal({ type: ModalType.SignUp }))}
