@@ -20,13 +20,13 @@ const packages = [
     description:
       "If you and your loved one/s thrive on fresh air, adventure, and exploring together, an outdoor location session is the perfect way to capture your story. You can choose from a curated list of Melbourne's most beautiful spots—stunning forests, riversides, and scenic parks—or we can head to a place that holds unique meaning for your family. Whether it’s a favourite walking trail, a quiet lakeside, or somewhere special to you, I’ll help craft a relaxed, fun experience where your family’s spirit really shines.",
     features: [
-      "Up to 90 minutes of shooting time",
+      "",
       "Baby-only session with a curated selection of poses",
       "30 fully edited, high-resolution images",
       "Online gallery for easy access",
       "Print release",
     ],
-    time: "90 min",
+    time: "",
     price: "$150",
   },
 ];
