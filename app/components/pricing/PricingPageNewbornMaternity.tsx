@@ -8,7 +8,7 @@ export default function PricingPageNewbornMaternity() {
         Newborn & Maternity Packages
       </h4>
       <Image
-        src="/Pricing-1.jpg"
+        src="/PricingPhotos/Pricing-1.jpg"
         alt="couple holding newborn at home"
         width={2122}
         height={1313}
