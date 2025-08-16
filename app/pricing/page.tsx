@@ -1,10 +1,12 @@
 import React from "react";
-import PricingPageInfo from "../components/pricing/PricingPageInfo";
+import PricingPageTitle from "../components/pricing/PricingPageTitle";
+import PricingPageNewbornMaternity from "../components/pricing/PricingPageNewbornMaternity";
 
 export default function page() {
   return (
     <>
-      <PricingPageInfo />
+      <PricingPageTitle />
+      <PricingPageNewbornMaternity />
     </>
   );
 }
