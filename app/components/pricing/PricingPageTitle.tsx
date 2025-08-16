@@ -6,10 +6,10 @@ export default function PricingPageTitle() {
   return (
     <>
       <section className="relative w-full px-10 overflow-hidden">
-        <h2 className="mt-30 text-[16px] font-semibold">
+        <h2 className="mt-30 font-semibold text-[15px] sm:text-lg md:text-xl lg:text-2xl">
           Every stage deserves a story—let us help you tell yours...
         </h2>
-        <h1 className="font-bold mt-5 ml-10 mb-10 text-3xl sm:text-4xl sm:ml-15 md:text-5xl lg:text-6xl">
+        <h1 className="font-bold mt-5 ml-10 mb-8 text-3xl sm:text-4xl sm:ml-15 md:text-5xl lg:text-6xl">
           Pricing
         </h1>
       </section>
