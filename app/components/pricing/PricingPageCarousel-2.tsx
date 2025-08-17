@@ -6,14 +6,14 @@ import { ClockIcon, CurrencyDollarIcon } from "@heroicons/react/24/solid";
 
 const packages = [
   {
-    title: "Newborn & Maternity - Essential Moments",
+    title: "Couples - Love Unscripted",
     image: "/PricingPhotos/PricingC1C1.jpg",
     description:
-      "Great for parents who want beautiful keepsakes with a smaller time or budget commitment. A simple and sweet package for those who want to capture the essentials — no less special, just more compact.",
+      "A session designed for couples who want to celebrate their bond in an authentic and relaxed way. It’s a chance to press pause and let your unique story unfold, capturing candid moments and genuine emotion—perfect for those seeking beautiful images without formality or fuss.",
     features: [
-      "Up to 90 minutes of shooting time",
-      "Baby-only session with a curated selection of poses",
-      "30 fully edited, high-resolution images",
+      "Up to 90 minutes of relaxed shoot time at a location special to you",
+      "Effortless posing guidance for natural shots",
+      "30 professionally edited, high-resolution images",
       "Online gallery for easy access",
       "Print release",
     ],
@@ -21,36 +21,36 @@ const packages = [
     price: "$350",
   },
   {
-    title: "Newborn & Maternity - Classic Collection",
+    title: "Couples - Signature Connection",
     image: "/PricingPhotos/PricingC1C2.jpg",
     description:
-      "Perfect for those who want variety and value in one beautiful package. A balanced package that captures the essence of your baby's first days, with variety and value.",
+      "Your love, your adventure. This package blends classic portraits with playful photojournalism to tell your story in a vibrant, unique way. Ideal for couples who want diverse images—from romantic moments to spontaneous laughter—delivered with artistry and heartfelt detail.",
     features: [
-      "Up to 2 hours of shooting time",
-      "Baby-focused session + parent/sibling shots",
+      "Up to 2 hours of shooting across two locations (park + urban, or your choice)",
+      "Guidance and creative direction for a variety of looks",
       "40 fully edited, high-resolution images",
       "Online gallery for download and sharing",
       "Print release",
     ],
     time: "2 hours",
-    price: "$450",
+    price: "$600",
   },
   {
-    title: "Newborn & Maternity - Deluxe Keepsake",
+    title: "Couples - Forever Collection",
     image: "/PricingPhotos/PricingC1C3.jpg",
     description:
-      "Best for families who want a full storytelling experience with every magical moment preserved. For families who want the ultimate gallery of their newborn's first days — every tiny detail, every tender moment.",
+      "A luxurious, all-inclusive photo experience built for couples ready to cherish every nuance of their relationship. From golden hour light to intimate settings, every detail is designed to evoke emotion and create a timeless visual story.",
     features: [
-      "Up to 3 hours of shooting time",
-      "Full session with multiple setups (baby, parents, siblings, lifestyle)",
-      "60 fully edited, high-resolution images",
-      "Priority editing turnaround",
-      "Personalized online gallery",
-      "$50 print credit included",
+      "Up to 3 hours of creative photoshoot with custom themes and props",
+      "Fully personalized session plan",
+      "60 exquisite, artistically retouched images",
+      "Fast-track editing with sneak previews",
+      "Deluxe online gallery curated for sharing and printing",
+      "Complimentary $50 print credit",
       "Print release",
     ],
     time: "3 hours",
-    price: "$650",
+    price: "$900",
   },
 ];
 
