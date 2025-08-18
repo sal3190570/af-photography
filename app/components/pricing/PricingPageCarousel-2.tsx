@@ -7,7 +7,7 @@ import { ClockIcon, CurrencyDollarIcon } from "@heroicons/react/24/solid";
 const packages = [
   {
     title: "Couples - Love Unscripted",
-    image: "/PricingPhotos/PricingC1C1.jpg",
+    image: "/PricingPhotos/PricingC2C1.jpg",
     description:
       "A session designed for couples who want to celebrate their bond in an authentic and relaxed way. It’s a chance to press pause and let your unique story unfold, capturing candid moments and genuine emotion—perfect for those seeking beautiful images without formality or fuss.",
     features: [
@@ -22,7 +22,7 @@ const packages = [
   },
   {
     title: "Couples - Signature Connection",
-    image: "/PricingPhotos/PricingC1C2.jpg",
+    image: "/PricingPhotos/PricingC2C2.jpg",
     description:
       "Your love, your adventure. This package blends classic portraits with playful photojournalism to tell your story in a vibrant, unique way. Ideal for couples who want diverse images—from romantic moments to spontaneous laughter—delivered with artistry and heartfelt detail.",
     features: [
@@ -37,7 +37,7 @@ const packages = [
   },
   {
     title: "Couples - Forever Collection",
-    image: "/PricingPhotos/PricingC1C3.jpg",
+    image: "/PricingPhotos/PricingC2C3.jpg",
     description:
       "A luxurious, all-inclusive photo experience built for couples ready to cherish every nuance of their relationship. From golden hour light to intimate settings, every detail is designed to evoke emotion and create a timeless visual story.",
     features: [
