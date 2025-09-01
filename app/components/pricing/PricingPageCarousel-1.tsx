@@ -105,14 +105,14 @@ export default function PricingPageCarousel1() {
             <div
               key={pkg.title}
               className="
-              embla__slide flex-shrink-0 basis-full sm:basis-1/2 lg:basis-1/3 max-w-[425px] mx-auto h-[650px] sm:h-[675px] md:h-[700px] lg:h-[770px] relative flex flex-col bg-white rounded-lg shadow p-4 "
+                  embla__slide flex-shrink-0 basis-full sm:basis-1/2 lg:basis-1/3 max-w-[425px] mx-auto h-[650px] sm:h-[675px] md:h-[700px] lg:h-[770px] relative flex flex-col bg-white rounded-lg shadow p-4 "
             >
-              <h5 className="font-semibold text-[14px] sm:text-[16px] md:text-[17px] lg:text-[19px] mb-2.5">
+              <h5 className="font-semibold text-center text-[14px] sm:text-[16px] md:text-[17px] lg:text-[19px] mb-2.5">
                 {pkg.title}
               </h5>
               {pkg.image && (
                 <div className="mb-2 w-full flex justify-center">
-                  <div className="w-[325px] sm:w-[325px] md:w-[325px] lg:w-[425px] overflow-hidden">
+                  <div className="w-[280px] sm:w-[290px] md:w-[325px] lg:w-[425px] overflow-hidden">
                     <Image
                       src={pkg.image}
                       alt={pkg.title}
@@ -127,14 +127,14 @@ export default function PricingPageCarousel1() {
 
               <div className="flex-1">
                 <p className="mb-2 text-xs">{pkg.description}</p>
-                <ul className="list-disc pl-5 text-[10px] lg:text-xs">
+                <ul className="list-disc pl-5 text-[10px] sm:text-[9px] lg:text-xs">
                   {pkg.features.map((f) => (
                     <li key={f}>{f}</li>
                   ))}
                 </ul>
               </div>
               {/* Bottom bar always pinned */}
-              <div className="absolute bottom-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-white border-t">
+              <div className="absolute -bottom-1 left-0 w-full flex justify-between items-center px-4 py-3 bg-white border-t">
                 <div className="flex gap-2 items-center">
                   <ClockIcon className="w-5 text-gray-600" />
                   <span className="text-gray-700 text-sm">{pkg.time}</span>
